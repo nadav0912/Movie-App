@@ -1,0 +1,428 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla&family=Lobster&family=Roboto&display=swap");
+:root {
+  --black: #090909;
+  --darker: rgb(36, 37, 42);
+  --darkGray: rgb(48, 49, 55);
+  --gray: rgb(107, 107, 107);
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--darker);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* NavBar*/
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 11vh;
+  background-color: var(--darkGray);
+  box-shadow: 0 5px 13px 6px rgba(20, 20, 20, 0.9);
+}
+
+.nav--icon {
+  width: 55px;
+}
+
+.nav--title {
+  font-family: "Lobster", cursive;
+  font-weight: 700;
+  font-size: 2.75rem;
+  margin: 0 0 0 17px;
+  text-shadow: 0px 0 5px rgba(121, 121, 121, 0.8);
+  color: var(--black);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Form */
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: 20vh;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.055rem;
+  color: var(--gray);
+  font-family: "Roboto", sans-serif;
+}
+
+.form--search-title {
+  margin-left: 10px;
+  font-size: 1.8rem;
+}
+
+.form--search {
+  width: 35vw;
+  padding: 14px 20px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  border-radius: 22px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--black);
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: 0.062rem;
+  border: none;
+  box-shadow: 0 0px 13px 8px rgba(10, 10, 10, 0.85);
+}
+
+.form--select-container,
+.form--search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form--select-container > select {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--black);
+  padding: 6px 0 6px 10px;
+  border-radius: 10px;
+  font-family: "Karla", sans-serif;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 6px;
+  box-shadow: 0 0px 6px 3px rgba(10, 10, 10, 0.85);
+}
+
+/* Gallery */
+.gallery--container {
+  width: 100vw;
+  height: 64vh;
+  overflow-y: scroll;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+::-webkit-scrollbar {
+  background-color: var(--gray);
+  border-radius: 10px;
+  width: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--black);
+  border-radius: 10px;
+  width: 10px;
+  height: 100px;
+}
+
+/* Movie Card */
+.card {
+  margin: 30px;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: 0 2px 12px 8px rgba(27, 27, 27, 0.82);
+  cursor: pointer;
+  background-color: var(--darkGray);
+  transition: transform 0.4s ease-in-out;
+  min-height: 360px;
+}
+
+.card:hover {
+  transform: scale(1.04);
+}
+
+.card--up-part {
+  width: 300px;
+  height: 185px;
+  position: relative;
+}
+
+.card--img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card--title {
+  position: absolute;
+  color: var(--white);
+  font-size: 1.35rem;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  width: 80%;
+  margin: 0;
+  left: 8px;
+  bottom: 10px;
+  text-shadow: 1px 0 6px rgba(33, 33, 33, 0.85);
+}
+
+.card--down-part {
+  font-family: "Karla", sans-serif;
+  padding: 15px 15px;
+}
+
+.card--details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.card--rating {
+  color: var(--gray);
+  font-size: 1.2rem;
+  margin-right: auto;
+  margin-left: 3px;
+}
+
+.card--year {
+  color: var(--gray);
+  font-size: 1.2rem;
+}
+
+.card--star {
+  width: 1rem;
+}
+
+.card--description {
+  margin: 0;
+  color: var(--white);
+  font-size: 1.07rem;
+  font-weight: 500;
+}
+
+/* Movie Page */
+.page-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(20, 20, 20, 0.65);
+  z-index: 10;
+}
+
+.page {
+  width: 80%;
+  max-width: 875px;
+  min-width: 800px;
+  background-color: var(--darkGray);
+  font-family: "Karla", sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 0 15px 10px rgba(15, 15, 15, 0.6);
+  display: flex;
+  padding: 33px 30px;
+  position: relative;
+  animation: show 1s ease-in-out;
+}
+
+@keyframes show {
+  from {
+    transform: scale(0.85) translateY(-100px);
+  }
+
+  to {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.page--left {
+  margin-right: 40px;
+}
+
+.page--img {
+  width: 250px;
+  border-radius: 9px;
+  object-fit: cover;
+}
+
+.page--details {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  width: 240px;
+}
+
+.page--star {
+  width: 20px;
+  object-fit: cover;
+}
+
+.page--rating {
+  margin-right: auto;
+  margin-left: 6px;
+}
+
+.page--rating,
+.page--year,
+.page--time {
+  color: var(--gray);
+  font-size: 1.4rem;
+}
+
+.page--time {
+  margin-left: 5px;
+  margin-top: 8px;
+}
+
+.page--title {
+  color: var(--white);
+  font-family: "Roboto", sans-serif;
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin: 2px 0 30px 0;
+  text-shadow: 5px 7px 11px rgba(10, 10, 10, 0.9);
+}
+
+.page--description {
+  color: var(--white);
+  font-size: 1.25rem;
+  font-weight: 400;
+  max-height: 325px;
+  overflow: hidden;
+}
+
+.page--actors {
+  line-height: 1.7rem;
+  letter-spacing: 0.085rem;
+  color: var(--white);
+  font-size: 1.1rem;
+  margin: 20px 0 24px 0;
+}
+
+.page--categories {
+  position: absolute;
+  right: 35px;
+  bottom: 2px;
+  color: var(--white);
+  font-size: 1.43rem;
+  color: var(--gray);
+}
+
+/* Loading Animation */
+.animated-bg {
+  border-radius: 12px;
+  background-image: linear-gradient(
+    to right,
+    #dbdada 0%,
+    #d5d3d3f6 10%,
+    #dbdada 20%,
+    #dbdada 100%
+  );
+  background-size: 200% 100%;
+  animation: bgPoz 1s linear infinite;
+}
+
+@keyframes bgPoz {
+  0% {
+    background-position: 50% 0;
+  }
+
+  100% {
+    background-position: -150% 0;
+  }
+}
+
+.page-load--img {
+  width: 250px;
+  height: 370px;
+  border-radius: 9px;
+}
+
+.page-load--details {
+  margin-top: 15px;
+  margin-left: 1px;
+  width: 248px;
+  height: 16px;
+}
+
+.page-load--time {
+  margin-left: 1px;
+  margin-top: 15px;
+  width: 90px;
+  height: 16px;
+}
+
+.page-load-title {
+  margin: 10px 0 55px 0;
+  width: 425px;
+  height: 30px;
+  border-radius: 14px;
+}
+
+.page-load--description > div {
+  width: 380px;
+  height: 18px;
+  margin: 0 0 27px 5px;
+}
+
+.page-load--actors {
+  margin-top: 45px;
+}
+
+.page-load--actors > div {
+  width: 350px;
+  height: 14px;
+  margin-bottom: 17px;
+  margin-left: 5px;
+}
+
+.page-load--categories {
+  position: absolute;
+  right: 40px;
+  bottom: 30px;
+  width: 220px;
+  height: 17px;
+}
+
+.card-load--img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.card-load--rating {
+  width: 75px;
+  height: 20px;
+  margin: 7px auto 0 3px;
+}
+
+.card-load--year {
+  width: 50px;
+  height: 20px;
+  margin-top: 7px;
+}
+
+.card-load--description {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-load--description > div {
+  width: 260px;
+  height: 16px;
+  margin-bottom: 15px;
+}
