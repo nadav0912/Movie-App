@@ -1,6 +1,7 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 import LoadingCard from "./LoadingCard";
+import InvalidInput from "./InvalidInput";
 
 function MoviesGallery({ filters }) {
   const [moviesIds, setMoviesIds] = React.useState([]);
@@ -9,8 +10,9 @@ function MoviesGallery({ filters }) {
   const [page, setPage] = React.useState({ current: 1, last: 1 });
 
   const loadData = async () => {
+    const search = filters.search === "" ? "Spider-Man" : filters.search;
     const data = await fetch(
-      `https://omdbapi.com/?apikey=2e004ade&s=${filters.search}&type=${filters.type}&y=${filters.year}&page=${page.current}`
+      `https://omdbapi.com/?apikey=2e004ade&s=${search}&type=${filters.type}&y=${filters.year}&page=${page.current}`
     )
       .then((res) => {
         if (!res.ok) throw Error("cant fetch the data");
@@ -54,8 +56,10 @@ function MoviesGallery({ filters }) {
     if (
       scrollHeight - scrollTop <= clientHeight + 500 &&
       page.current < page.last
-    )
+    ) {
       setPage((prevPage) => ({ ...prevPage, current: prevPage.current + 1 }));
+      console.log(page.current);
+    }
   };
 
   // Reset states and reload data when search new movie
@@ -94,7 +98,7 @@ function MoviesGallery({ filters }) {
         {loading ? (
           loadingCards
         ) : error ? (
-          <div>movie note found!</div>
+          <InvalidInput />
         ) : (
           moviesIds.map((id) => <MovieCard key={id} movieId={id} />)
         )}

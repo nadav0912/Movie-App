@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 
 function App() {
   const [formData, setFormData] = React.useState({
-    search: "Spider-Man",
+    search: "",
     year: "",
     type: "",
   });

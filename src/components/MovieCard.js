@@ -1,5 +1,6 @@
 import React from "react";
 import star from "../images/star.png";
+import noImg from "../images/no-img.png";
 import MoviePage from "./MoviePage";
 
 function MovieCard({ movieId }) {
@@ -18,10 +19,13 @@ function MovieCard({ movieId }) {
       .then((data) =>
         setCardData({
           title: data.Title,
-          imgUrl: data.Poster,
-          rating: data.imdbRating,
-          year: data.Year,
-          plot: data.Plot,
+          imgUrl: data.Poster === "N/A" ? noImg : data.Poster,
+          rating: data.imdbRating === "N/A" ? "No Rating" : data.imdbRating,
+          year: data.Year === "N/A" ? "No Year" : data.Year,
+          plot:
+            data.Plot === "N/A"
+              ? "No plot available for this movie..."
+              : data.Plot,
         })
       );
   }, [movieId]);

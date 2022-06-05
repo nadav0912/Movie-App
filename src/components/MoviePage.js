@@ -1,29 +1,48 @@
 import React from "react";
 import star from "../images/star.png";
+import noImg from "../images/no-img.png";
 
 const MovieContent = (props) => {
   return (
     <>
       <div className="page--left">
-        <img className="page--img" src={props.Poster}></img>
+        <img
+          className="page--img"
+          src={props.Poster === "N/A" ? noImg : props.Poster}
+        ></img>
         <div className="page--details">
           <img className="page--star" src={star}></img>
-          <span className="page--rating">{props.imdbRating}</span>
-          <span className="page--year">{props.Year}</span>
+          <span className="page--rating">
+            {props.imdbRating === "N/A" ? "No Rating" : props.imdbRating}
+          </span>
+          <span className="page--year">
+            {props.Year === "N/A" ? "No Year" : props.Year}
+          </span>
         </div>
-        <div className="page--time">{props.Runtime}</div>
+        <div className="page--time">
+          {props.Runtime === "N/A" ? "" : props.Runtime}
+        </div>
       </div>
       <div className="page--right">
         <h2 className="page--title">{props.Title}</h2>
-        <p className="page--description">{props.Plot}</p>
-        <p className="page--actors">
-          Actors: {props.Actors}.
-          <br />
-          Writer: {props.Writer}.
-          <br />
-          Director: {props.Director}.
+        <p className="page--description">
+          {props.Plot === "N/A"
+            ? "No plot available for this movie..."
+            : props.Plot}
         </p>
-        <p className="page--categories">{props.Genre}</p>
+        <p className="page--actors">
+          Actors:{" "}
+          {props.Actors === "N/A" ? "Information missing..." : props.Actors}
+          <br />
+          Writer:{" "}
+          {props.Writer === "N/A" ? "Information missing..." : props.Writer}
+          <br />
+          Director:{" "}
+          {props.Director === "N/A" ? "Information missing..." : props.Director}
+        </p>
+        <p className="page--categories">
+          {props.Genre === "N/A" ? "" : props.Genre}
+        </p>
       </div>
     </>
   );

@@ -1,5 +1,3 @@
-import star from "../images/star.png";
-
 function LoadingCard() {
   return (
     <div className="card">
