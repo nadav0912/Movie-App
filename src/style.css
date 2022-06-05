@@ -15,8 +15,6 @@ body {
   margin: 0;
   background-color: var(--darker);
   width: 100vw;
-  min-height: 650px;
-  overflow-y: scroll;
 }
 
 .App {
