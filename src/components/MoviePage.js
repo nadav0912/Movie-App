@@ -57,7 +57,7 @@ const LoadContent = () => {
         <div className="page-load--time animated-bg"></div>
       </div>
       <div className="page--right">
-        <h2 className="page-load-title animated-bg"></h2>
+        <h2 className="page-load--title animated-bg"></h2>
         <div className="page-load--description">
           <div className="animated-bg"></div>
           <div className="animated-bg"></div>
@@ -81,9 +81,11 @@ function MoviePage({ movieId, toggle }) {
 
   const loadData = async () => {
     const data = await fetch(
-      `https://omdbapi.com/?i=${movieId}&apikey=2e004ade&plot=full`
+      `http://www.omdbapi.com/?apikey=2e004ade&i=${movieId}&plot=full`
     )
-      .then((res) => res.json())
+      .then((res) => {
+        return res.json();
+      })
       .then((data) => setMovieData(data));
 
     setTimeout(() => {

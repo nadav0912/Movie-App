@@ -12,7 +12,7 @@ function MoviesGallery({ filters }) {
   const loadData = async () => {
     const search = filters.search === "" ? "Spider-Man" : filters.search;
     const data = await fetch(
-      `https://omdbapi.com/?apikey=2e004ade&s=${search}&type=${filters.type}&y=${filters.year}&page=${page.current}`
+      `http://www.omdbapi.com/?apikey=2e004ade&s=${search}&type=${filters.type}&y=${filters.year}&page=${page.current}`
     )
       .then((res) => {
         if (!res.ok) throw Error("cant fetch the data");
@@ -58,7 +58,6 @@ function MoviesGallery({ filters }) {
       page.current < page.last
     ) {
       setPage((prevPage) => ({ ...prevPage, current: prevPage.current + 1 }));
-      console.log(page.current);
     }
   };
 
