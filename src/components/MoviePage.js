@@ -81,7 +81,7 @@ function MoviePage({ movieId, toggle }) {
 
   const loadData = async () => {
     const data = await fetch(
-      `http://www.omdbapi.com/?apikey=2e004ade&i=${movieId}&plot=full`
+      `http://omdbapi.com/?apikey=2e004ade&i=${movieId}&plot=full`
     )
       .then((res) => {
         return res.json();
