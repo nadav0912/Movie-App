@@ -382,8 +382,8 @@ form {
 .page--categories {
   position: absolute;
   right: 35px;
-  bottom: 2px;
-  color: var(--white);
+  bottom: 20px;
+  margin: 0;
   font-size: 1.43rem;
   color: var(--gray);
 }
@@ -425,6 +425,7 @@ form {
 
   .page--categories {
     font-size: 1.25rem;
+    bottom: 10px;
   }
 }
 
@@ -479,10 +480,13 @@ form {
     font-size: 0.85rem;
     line-height: 1.1rem;
     margin-top: 7px;
+    margin-bottom: 15px;
   }
 
   .page--categories {
     font-size: 1.15rem;
+    bottom: 3px;
+    right: 6px;
   }
 }
 
