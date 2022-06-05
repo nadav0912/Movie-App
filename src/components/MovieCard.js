@@ -13,7 +13,7 @@ function MovieCard({ movieId }) {
 
   React.useEffect(() => {
     const data = fetch(
-      `http://omdbapi.com/?apikey=2e004ade&i=${movieId}&plot=short`
+      `https://omdbapi.com/?apikey=2e004ade&i=${movieId}&plot=short`
     )
       .then((res) => {
         return res.json();

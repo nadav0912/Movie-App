@@ -12,7 +12,7 @@ function MoviesGallery({ filters }) {
   const loadData = async () => {
     const search = filters.search === "" ? "Spider-Man" : filters.search;
     const data = await fetch(
-      `http://omdbapi.com/?apikey=2e004ade&s=${search}&type=${filters.type}&y=${filters.year}&page=${page.current}`
+      `https://omdbapi.com/?apikey=2e004ade&s=${search}&type=${filters.type}&y=${filters.year}&page=${page.current}`
     )
       .then((res) => {
         if (!res.ok) throw Error("cant fetch the data");
