@@ -15,8 +15,8 @@ body {
   margin: 0;
   background-color: var(--darker);
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 650px;
+  overflow-y: scroll;
 }
 
 .App {
@@ -34,6 +34,7 @@ body {
   height: 11vh;
   background-color: var(--darkGray);
   box-shadow: 0 5px 13px 6px rgba(20, 20, 20, 0.9);
+  z-index: 3;
 }
 
 .nav--icon {
@@ -79,6 +80,8 @@ form {
   letter-spacing: 0.055rem;
   color: var(--gray);
   font-family: "Roboto", sans-serif;
+  margin-bottom: auto;
+  z-index: 2;
 }
 
 .form--search-title {
@@ -159,9 +162,6 @@ form {
 
 /* Gallery */
 .gallery--container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100vw;
   height: 68.5vh;
   overflow-y: scroll;
@@ -203,6 +203,7 @@ form {
   background-color: var(--darkGray);
   transition: transform 0.4s ease-in-out;
   min-height: 360px;
+  z-index: 1;
 }
 
 .card:hover {
@@ -279,7 +280,7 @@ form {
   align-items: center;
   justify-content: center;
   background-color: rgba(20, 20, 20, 0.65);
-  z-index: 10;
+  z-index: 4;
 }
 
 .page {
@@ -295,6 +296,7 @@ form {
   padding: 33px 30px;
   position: relative;
   animation: show 1s ease-in-out;
+  z-index: 5;
 }
 
 @keyframes show {
